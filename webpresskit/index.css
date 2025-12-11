@@ -1,0 +1,100 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #d4fcd4;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: #00ff88;
+}
+
+section {
+  border-bottom: 1px solid #00ff88;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Estilo global para todas las imágenes */
+img {
+  max-width: 100%;          /* ocupan todo el ancho disponible del contenedor */
+  height: auto;             /* proporción correcta */
+  display: block;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* HEADER */
+.hero-header {
+  background-image: url('fotos_presskit/img_header.jpeg'); /* Cambia por tu imagen */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-header .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOTONES */
+.btn-outline-light {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.btn-outline-light:hover {
+  background-color: #00ff88;
+  color: #000;
+}
+
+/* FOOTER */
+footer {
+  background-color: #000;
+  color: #00ff88;
+}
+
+/* Animación personalizada (solo para web, no afecta PDF) */
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modo PDF: imágenes completas y texto legible */
+.pdf-mode img {
+  max-width: 100% !important;
+  height: auto !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.pdf-mode section {
+  page-break-inside: avoid;
+}
+
+.pdf-mode h1,
+.pdf-mode h2,
+.pdf-mode p,
+.pdf-mode li {
+  color: #000 !important; /* texto negro para mejor legibilidad en PDF */
+}

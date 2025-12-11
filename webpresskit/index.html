@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Press Kit DJ JP Gonz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* Special styles for PDF export */
+    .pdf-mode img {
+      max-width: 100% !important;
+      height: auto !important;
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      margin: 20px auto;
+      box-shadow: none !important;
+    }
+
+    .pdf-mode section {
+      page-break-inside: avoid;
+    }
+
+    .pdf-mode {
+      background-color: #fff !important;
+      color: #000 !important;
+    }
+
+    .pdf-mode h1,
+    .pdf-mode h2,
+    .pdf-mode p,
+    .pdf-mode li {
+      color: #000 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hero-header text-center text-white">
+    <div class="overlay">
+      <h1 class="animate__animated animate__fadeInDown">JP GONZ</h1>
+      <p class="lead animate__animated animate__fadeInUp">Official Press Kit</p>
+      <!-- <button id="downloadPDF" class="btn btn-outline-light mt-3 animate__animated animate__fadeInUp">Download as PDF</button> -->
+    </div>
+  </header>
+
+  <!-- BIOGRAPHY -->
+  <section id="biografia" class="container py-5 animate__animated animate__fadeIn">
+    <h2>Biography</h2>
+    <p>From an early age, Juan “JP Gonz” immersed himself in the universe of electronic music, finding in house and minimal deep tech the genres that would define his sonic identity. At just 17 years old he began performing on local stages, and today, at 25, he has established himself as a Chilean DJ and producer with a unique style, characterized by deep atmospheres and immersive rhythms that authentically connect with the audience.
+    His career reflects a constant passion for musical exploration and the pursuit of immersive experiences, taking each set beyond the conventional. With a fresh and professional approach, JP Gonz positions himself as a rising talent within the emerging national electronic scene, projecting his energy toward new audiences and international stages.</p>
+    <img src="fotos_presskit/gardenia_1.jpeg" class="img-fluid rounded mt-3" alt="JP Gonz in action">
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="container py-5 bg-dark text-white animate__animated animate__fadeInLeft">
+    <h2>Experience</h2>
+    <ul>
+      <li>Club The House AALAN Birthday – December 2024.</li>
+      <li>Monteluz Wines – Resident between May and July 2025.</li>
+      <li>Casa Sonido DJ PEAKTIME – Mid-2025 course taught by renowned DJ André Butano.</li>
+      <li>Club La Feria – Peaktime exam DJ André Butano.</li>
+      <li>Gardenia Party – Last semester of 2025.</li>
+    </ul>
+    <img src="fotos_presskit/experiencias.jpeg" class="img-fluid rounded mt-3" alt="DJ Experience">
+  </section>
+
+  <!-- UPCOMING DATES -->
+  <section id="dates" class="container py-5 animate__animated animate__fadeInRight">
+    <h2>Upcoming Dates</h2>
+    <ul>
+      <li>December 20, Chile 2025 – Not yet announced.</li>
+      <li>December 31, 2025 USA – Aurum et Obscurum.</li>
+    </ul>
+    <img src="fotos_presskit/prox_fechas.jpeg" class="img-fluid rounded mt-3" alt="DJ Dates">
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section id="social" class="container py-5 animate__animated animate__fadeInUp">
+    <h2>Social Media</h2>
+    <p class="text-center">Follow JP Gonz on his official channels:</p>
+    <div class="d-flex justify-content-center gap-4 mt-3">
+      <a href="https://www.instagram.com/djpgonz/" target="_blank" class="btn btn-outline-light">
+        <i class="fab fa-instagram me-2"></i>DJPGONZ
+      </a>
+      <a href="https://soundcloud.com/jpgonz/tracks" target="_blank" class="btn btn-outline-light">
+        <i class="fab fa-soundcloud me-2"></i>JPGONZ
+      </a>
+    </div>
+  </section>
+
+  <!-- FLYERS -->
+  <section id="flyers" class="container py-5 bg-dark text-white animate__animated animate__zoomIn">
+    <h2>Flyers and Performances</h2>
+    <div class="row">
+      <div class="col-md-4"><img src="fotos_presskit/flyer1.jpeg" class="img-fluid rounded mb-3" alt="Flyer 1"></div>
+      <div class="col-md-4"><img src="fotos_presskit/flyer2.jpeg" class="img-fluid rounded mb-3" alt="Flyer 2"></div>
+      <div class="col-md-4"><img src="fotos_presskit/flyer3.jpeg" class="img-fluid rounded mb-3" alt="Flyer 3"></div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="text-center py-4 bg-black text-white">
+    <p>&copy; 2025 JP Gonz. All rights reserved.</p>
+  </footer>
+
+  <!-- PDF SCRIPT -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById("downloadPDF")?.addEventListener("click", () => {
+      document.body.classList.add("pdf-mode");
+
+      const element = document.body;
+      const opt = {
+        margin: 0.5,
+        filename: 'JP_Gonz_PressKit.pdf',
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save().then(() => {
+        document.body.classList.remove("pdf-mode");
+      });
+    });
+  </script>
+</body>
+</html>
